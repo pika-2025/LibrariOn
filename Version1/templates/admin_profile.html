@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel = "stylesheet" href="/static/styles.css">
+
+</head>
+<body id="admin">
+    <h2>Librarian Dashboard</h2>
+    <button type="button"><a href='/admin_dashboard'>Home</a></button>
+    <button type="button"><a href='/issued_books'>Books Issued</a></button>
+    <button type="button"><a href='/books'>Books</a></button>
+    <button type="button"><a href='/user_list'>View Users</a></button>
+    <button type="button">View Profile</button>
+    <button type="button"><a href="/stats">Stats</a></button>
+    <button type='submit'><a href="/logout">Logout</a></button>
+    <hr>
+    <h4>Librarian Details</h4>
+    <img src="/{{admin.profile_photo_path}}" alt="Profile Photo" style="max-width: 150px; height: auto;">
+    <p>Full Name : {{admin.full_name}}</p>
+    <p>Username : {{admin.username}}</p>
+    <p>Email ID : {{admin.email}}</p>
+    <p>Contact No. : {{admin.mob_num}}</p>
+    <button type="button" style="background-color: rgb(185, 127, 239);"><a href= '/update_admin'>Update Profile</a></button>
+    <button type="button"><a href='/change_admin_password'>Change Password</a></button>
+</body>
+</html>

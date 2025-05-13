@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Status</title>
+    <link rel = "stylesheet" href="/static/styles.css">
+
+</head>
+<body id="user">
+    <h1>eLibrary</h1>
+    <button type="button"><a href='/login/user_dashboard'>Home</a></button>
+    <button type="button"><a href="/my_books">My Books</a></button>
+    <button type="button"><a href='/user_profile'>Profile</a></button>
+    <button type='button'>My Requests</button>
+    <button type="submit"><a href="/logout">Logout</a></button>
+    <hr>
+    <h2>Request Status</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Request ID</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Status</th>
+                <th>Issued Date</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for request in rental_requests %}
+            <tr>
+                <td>{{request.id}}</td>
+                <td>{{ request.book.title }}</td>
+                <td>{{ request.book.author }}</td>
+                <td>{{ request.status }}</td>
+                <td>
+                    {% if request.status == 'Approved' and request.issued_date %}
+                    {{ request.issued_date.strftime('%d-%m-%Y') }}
+                    {% endif %}
+                </td>
+                <td>{% if request.status == 'Pending'%}
+                    <button type="button"><a href = '/cancel_request/{{request.id}}'>Cancel Request</a></button>
+                    {%endif%}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

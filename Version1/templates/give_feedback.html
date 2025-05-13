@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Books</title>
+    <link rel = "stylesheet" href="/static/styles.css">
+
+</head>
+<body id="user">
+    <h1>eLibrary</h1>
+    <button type="button"><a href='/login/user_dashboard'>Home</a></button>
+    <button type="button">My Books</button>
+    <button type="button"><a href='/user_profile'>Profile</a></button>
+    <button type='button'><a href="/rental_requests">My Requests</a></button>
+    <button type="submit"><a href="/logout">Logout</a></button>
+    <hr>
+    <img src="/{{book.preview_path}}">
+    <h2>{{ book.title }}</h2>
+    <p>By : {{book.author}}</p>
+    <form action="/give_feedback/{{ book.id }}" method="post">
+        <label for="feedback">Feedback:</label>
+        <textarea name="feedback"  rows="5" cols="60"></textarea>
+        <br><hr>
+        <label for="rating">Rating:</label>
+        <select name="rating">
+            <option value="5">5 (Excellent)</option>
+            <option value="4">4 (Good)</option>
+            <option value="3">3 (Average)</option>
+            <option value="2">2 (Poor)</option>
+            <option value="1">1 (Very Poor)</option>
+        </select>
+        <br><hr>
+        <button type="submit">Submit Feedback</button>
+    </form>
+
+</body>
+</html>

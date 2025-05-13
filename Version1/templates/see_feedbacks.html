@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedbacks</title>
+    <link rel = "stylesheet" href="/static/styles.css">
+</head>
+<body id = 'user'>
+    <h1>eLibrary</h1>
+    <h2>Welcome, {{ fullname }}!</h2>
+    <button type="button">Home</button>
+    <button type="button"><a href="/my_books">My Books</a></button>
+    <button type="button"><a href="/user_profile">Profile</a></button>
+    <button type="button"><a href="/rental_requests">My Requests</a></button>
+    <button type="submit"><a href="/logout">Logout</a></button>
+    <hr>
+    <form action="/search_user" method="post">
+        <label for="search_book">Search Book:</label>
+        <input type="text" id="search_book" name="search_book" required>
+        <label for="search_criteria">Search By:</label>
+        <select id="search_criteria" name="search_criteria">
+            <option value="title">Title</option>
+            <option value="author">Author</option>
+            <option value="genre">Genre</option>
+        </select>
+        <button type="submit" style="background-color: rgb(4, 163, 163); color:black">Search</button>
+    </form>
+    <img src = "/{{book.preview_path}}" >
+    <p>By - {{book.author}}</p>
+    <button type="button"><a href='/rent_book/{{book.id}}'>Rent</a></button>
+    <button type="button"><a href='/buy_book/{{book.id}}'>Buy</a></button>
+    <table>
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>Rating</th>
+                <th>Feedback</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for feedback in feedbacks %}
+            <tr>
+                <td>{{ feedback.user.full_name }}</td>
+                <td>{{ feedback.rating }}</td>
+                <td>{{ feedback.feedback }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <Button type ="button"><a href="/login/user_dashboard">Back to dashboard</a></Button>
+</body>
+</html>

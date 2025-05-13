@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genres</title>
+    <link rel = "stylesheet" href="/static/styles.css">
+
+</head>
+<body id="admin">
+    <h2>Librarian Dashboard</h2>
+    <button type="button"><a href='/admin_dashboard'>Home</a></button>
+    <button type="button"><a href='/issued_books'>Books Issued</a></button>
+    <button type="button">Books</button>
+    <button type="button"><a href='/user_list'>View Users</a></button>
+    <button type="button"><a href='/view_profile'>View Profile</a></button>
+    <button type="button"><a href="/stats">Stats</a></button>
+    <button type='submit'><a href="/logout">Logout</a></button>
+    
+    <h1>All Genres</h1>
+    <button type="button" style="background-color: rgb(144, 144, 235);"><a href='/add_genre'>Add Genre</a></button>
+    <table>
+        <thead>
+            <tr>
+                <th>Genre</th>
+                <th>Description</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for genre in genres %}
+            <tr>
+                <td>{{ genre.genre }}</td>
+                <td>{{ genre.description }}</td>
+                <td>
+                    <button type="submit"><a href='/books/{{genre.genre}}'>View Books</a></button>
+                    <button type="submit"><a href='/edit_genre/{{genre.genre}}'>Edit Genre</a></button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+</body>
+</html>

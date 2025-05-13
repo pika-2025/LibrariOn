@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel = "stylesheet" href="/static/styles.css">
+</head>
+<body id="user">
+    <h1>eLibrary</h1>
+    <h2>Welcome, {{fullname}} !</h2>
+    <button type="button">Home</button>
+    <button type="button"><a href="/my_books">My Books</a></button>
+    <button type="button"><a href='/user_profile'>Profile</a></button>
+    <button type='button'><a href="/rental_requests">My Requests</a></button>
+    <button type="submit"><a href="/logout">Logout</a></button>
+    <hr>
+    <form action="/search_user" method="post">
+        <label for="search_book">Search Book:</label>
+        <input type="text" id="search_book" name="search_book" required>
+        <label for="search_criteria">Search By:</label>
+        <select id="search_criteria" name="search_criteria">
+            <option value="title">Title</option>
+            <option value="author">Author</option>
+            <option value="genre">Genre</option>
+        </select>
+        
+        <button type="submit" style="background-color: rgb(4, 163, 163); color:black">Search</button>
+    <hr>
+
+    <h2>Books</h2>
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Reviews</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in all_books %}
+            <tr>
+                <td><img src = '/{{book.preview_path}}'></td>
+                <td>{{book.title}}</td>
+                <td>{{book.author}}</td>
+                <td><a href='/see_feedbacks/{{book.id}}'>Click Here</a></td>
+                <td>
+                    <button type="button"><a href='/rent_book/{{book.id}}'>Rent</a></button>
+                    <button type="button"><a href='/buy_book/{{book.id}}'>Buy</a></button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

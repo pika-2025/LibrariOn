@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel = "stylesheet" href="/static/styles.css">
+</head>
+<body id="login">
+    <h1>Library Management System</h1>
+    <button type = 'button'><a href ='/login/admin_login'>Librarian</a></button>
+    <button type="button" style="color :black; background-color: transparent;">User</button>
+    <hr><br>
+    <h3>Enter your login credentials</h3>
+    <form action="/login" method="post">
+        <div>
+          <label for="username">Username:</label>
+          <input type="text" placeholder="Enter your username" name="username" required>
+        </div>
+        <div>
+          <label for="password" >Password:</label>
+          <input type="password" placeholder="Enter your password" name="password" required>
+        </div>
+        <br>
+        <button type="submit">Login</button>
+        <a href="/login/forgot_password">Forgot Password ?</a>
+      </form>
+      <hr>
+      <p>New User ? <a href="/register">Register Here</a></p>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchased</title>
+    <link rel = "stylesheet" href="/static/styles.css">
+
+</head>
+<body id="user">
+    <h2>You have successfully purchased the book "{{ book.title }}".</h2>
+    <h4>Click on the download button</h4>
+    <button type="button"><a href="{{book.Content}}" download = "{{book.title}}.pdf">Download Book</a></button>
+    <hr><br>
+    <button type="button" style="background-color: rgba(237, 89, 89, 0.918) ;"><a href="/login/user_dashboard">Back to dashboard</a></button>
+</body>
+</html>

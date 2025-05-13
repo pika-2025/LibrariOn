@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{genre.genre}} Books</title>
+    <link rel = "stylesheet" href="/static/styles.css">
+
+</head>
+<body id="admin">
+    <h2>Librarian Dashboard</h2>
+    <button type="button"><a href='/admin_dashboard'>Home</a></button>
+    <button type="button"><a href='/issued_books'>Books Issued</a></button>
+    <button type="button">Books</button>
+    <button type="button"><a href='/user_list'>View Users</a></button>
+    <button type="button"><a href='/view_profile'>View Profile</a></button>
+    <button type="button"><a href="/stats">Stats</a></button>
+    <button type='submit'><a href="/logout">Logout</a></button>
+    <h1>{{genre.genre}}</h1>
+    <button type="button" style="background-color: rgb(238, 144, 144);"><a href='/books'>Back to Genres</a></button>
+    <button type="button" style="background-color: rgb(142, 142, 244);"><a href='/add_book/{{genre.genre}}'>Add Book</a></button>
+    <table>
+        <thead>
+            <tr>
+                <th>Book</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+            <tr>
+                <td><img src="/{{book.preview_path}}" alt = 'Preview'>
+                <br>{{ book.title }} by {{ book.author }}</td>
+                <td>{%if book.is_available==True%}
+                    <button type='button'><a href='/{{book.Content}}'>Read</a></button>
+                    {%else%}
+                    <p>Rented</p>
+                    {%endif%}
+                    <br>
+                <button type='button'><a href='/edit_book/{{book.id}}'>Edit</a></button></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

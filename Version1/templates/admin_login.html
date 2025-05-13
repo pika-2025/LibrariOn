@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Librarian login</title>
+    <link rel = "stylesheet" href="/static/styles.css">
+
+</head>
+<body id="login">
+    <h1>Library Management System</h1>
+    <button type="button" style="background-color: transparent; color: black;">Librarian</button>
+    <button type="button"><a href = '/login'>User</a></button>
+    <hr><br>
+    <h3>Enter your login credentials</h3>
+    <form action="/login/admin_login" method="POST">
+        <div>
+          <label for="username">Username:</label>
+          <input type="text" placeholder="Enter your username" name="username" required>
+        </div>
+        <div>
+          <label for="password" >Password:</label>
+          <input type="password" placeholder="Enter your password" name="password" required>
+        </div>
+        <br>
+        <button type="submit">Login</button>
+        <a href="/forgot_admin_password">Forgot Password ?</a>
+    </form>
+    <hr>
+</body>
+</html>

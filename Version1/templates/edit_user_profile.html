@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel = "stylesheet" href="/static/styles.css">
+
+</head>
+<body id="user">
+    <h1>eLibrary</h1>
+    <button type="button"><a href='/login/user_dashboard'>Home</a></button>
+    <button type="button"><a href="/my_books">My Books</a></button>
+    <button type="button">Profile</button>
+    <button type='button'><a href="/rental_requests">My Requests</a></button>
+    <button type="submit"><a href="/logout">Logout</a></button>
+    <hr>
+    <h2>Edit Profile</h2>
+    <form action="/edit_user_profile" method="post" enctype="multipart/form-data">
+        <label for="full_name">Full Name:</label>
+        <input type="text" name="full_name" value="{{ user.full_name }}" required><br><br>
+        <label for="username">Username:</label>
+        <input type="text" name="username" value="{{ user.username }}" required><br><br>
+        <label for="email">Email:</label>
+        <input type="email" name="email" value="{{ user.email }}" required><br><br>
+        <label for="mob_num">Mobile Number:</label>
+        <input type="text" name="mob_num" value="{{ user.mob_num }}" required><br><br>
+        <label for="profile_photo">Profile Photo:</label>
+        <input type="file" name="profile_photo"><br><br>
+        <button type="submit">Save Changes</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Genre</title>
+    <link rel = "stylesheet" href="/static/styles.css">
+
+</head>
+<body id="admin">
+    <h1>eLibrary</h1>
+    <button type="button"><a href = '/admin_dashboard'>Home</a></button>
+    <button type="button"><a href='/issued_books'>Books Issued</a></button>
+    <button type="button">Books</button>
+    <button type="button"><a href='/user_list'>View Users</a></button>
+    <button type="button"><a href='/view_profile'>View Profile</a></button>
+    <button type="button"><a href="/stats">Stats</a></button>
+    <button type='submit'><a href="/logout">Logout</a></button>
+    <hr>
+    <h3>Edit Genre</h3>
+    <form action='/edit_genre/{{genre.genre}}' method="POST">
+        <label for="genre">Genre Name:</label>
+        <input type="text" id="genre" name="genre" value="{{ genre.genre }}" required><br>
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description" value="{{ genre.description }}"><br>
+        <button type="button" style="background-color: rgb(225, 129, 129);"><a href='/books'>Back to Genres</a></button>
+        <button type="submit">Save Changes</button>
+    </form>
+</body>
+</html>

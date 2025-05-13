@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel = "stylesheet" href="/static/styles.css">
+
+</head>
+<body id="admin">
+    <h1>eLibrary</h1>
+    <button type="button"><a href='/admin_dashboard'>Home</a></button>
+    <button type="button"><a href='/issued_books'>Books Issued</a></button>
+    <button type="button"><a href='/books'>Books</a></button>
+    <button type="button"><a href='/user_list'>View Users</a></button>
+    <button type="button">View Profile</button>
+    <button type="button"><a href="/stats">Stats</a></button>
+    <button type='submit'><a href="/logout">Logout</a></button>
+    <hr>
+    <h3>Update Profile</h3>
+    <form action="/update_admin" method="post" enctype="multipart/form-data">
+        <label for="full_name">Full Name:</label>
+        <input type="text" name="full_name" value="{{ admin.full_name }}" required><br><br>
+        <label for="username">Username:</label>
+        <input type="text" name="username" value="{{ admin.username }}" required><br><br>
+        <label for="email">Email:</label>
+        <input type="email" name="email" value="{{ admin.email }}" required><br><br>
+        <label for="mob_num">Mobile Number:</label>
+        <input type="text" name="mob_num" value="{{ admin.mob_num }}" required><br><br>
+        <label for="profile_photo">Profile Photo:</label>
+        <input type="file" name="profile_photo"><br><br>
+        <button type="button" style="background-color: rgb(227, 134, 134);"><a href="/view_profile">Back</a></button>
+        <button type="submit">Save Changes</button>
+    </form>

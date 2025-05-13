@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Books</title>
+    <link rel = "stylesheet" href="/static/styles.css">
+
+</head>
+<body id="user">
+    <h1>eLibrary</h1>
+    <button type="button"><a href='/login/user_dashboard'>Home</a></button>
+    <button type="button">My Books</button>
+    <button type="button"><a href='/user_profile'>Profile</a></button>
+    <button type='button'><a href="/rental_requests">My Requests</a></button>
+    <button type="submit"><a href="/logout">Logout</a></button>
+    <hr>
+    <h3>My Books:</h3>
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Till</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book, ebook_return in books %}
+            <tr><td><img src="/{{book.preview_path}}"></td>
+                <td>{{book.title}}</td>
+                <td>{{book.author}}</td>
+                <td>{{ebook_return.return_date.strftime("%d-%m-%Y")}}</td>
+                <td>
+                    <button type="button"><a href = '/return_book/{{book.id}}'>Return Now</a></button>
+                    <button type="button"><a href = '/give_feedback/{{book.id}}'>Feedback</a></button>
+                    <button type="button"><a href = '/{{book.Content}}'>Read</a></button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel = "stylesheet" href="/static/styles.css">
+</head>
+<body id="admin">
+    <h2>Librarian Dashboard</h2>
+    <button type="button">Home</button>
+    <button type="button"><a href='/issued_books'>Books Issued</a></button>
+    <button type="button"><a href='/books'>Books</a></button>
+    <button type="button"><a href='/user_list'>View Users</a></button>
+    <button type="button"><a href='/view_profile'>View Profile</a></button>
+    <button type="button"><a href="/stats">Stats</a></button>
+    <button type='submit'><a href="/logout">Logout</a></button>
+    <hr>
+    <form action="/search_admin" method="post">
+        <label for="search_book">Search Book:</label>
+        <input type="text" id="search_book" name="search_book" required>
+        <label for="search_criteria">Search By:</label>
+        <select id="search_criteria" name="search_criteria">
+            <option value="title">Title</option>
+            <option value="author">Author</option>
+            <option value="genre">Genre</option>
+        </select>
+        
+        <button type="submit" style="background-color: rgb(14, 140, 140);">Search</button>
+    </form>
+    </form>
+    <br>
+    <h1>E-Book Requests</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>User ID</th>
+                <th>Name</th>
+                <th>Book</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for request in requests %}
+            <tr>
+                <td>{{ request.user.id }}</td>
+                <td>{{request.user.full_name}}</td>
+                <td><img src="/{{request.book.preview_path}}"><br>
+                {{ request.book.title }} by {{request.book.author}}</td>
+                <td><button type="button" style="background-color: rgb(92, 237, 208);"><a href='/accept_rental_request/{{request.id}}'>Approve</a></button>
+                <button type="button" style="background-color: rgb(226, 136, 136);"><a href = '/reject_rental_request/{{request.id}}'>Reject</a></button></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

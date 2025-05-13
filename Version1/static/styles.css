@@ -1,0 +1,167 @@
+#login {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    text-align: center;
+    color:#000000;
+    background-image: url('/static/library.jpg');
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+#login button {
+    background-color: rgb(41, 144, 255);
+    align-content: center;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 3px;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+#login button:hover {
+    background-color: #2d343b9f;
+}
+
+#login button a {
+    text-decoration: none;
+    color: inherit;
+}
+
+#user {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(201, 222, 225);
+    color: #000000;
+}
+#user p {
+    font-size: larger;
+    color: rgb(0, 0, 0);
+}
+#user h1 {
+    text-align: center;
+    font-size: 50px;
+    margin-top: 20px;
+    color: #000000;
+}
+
+#user h2 {
+    font-size: 30;
+    text-align: center;
+    color: #000000;
+}
+
+#user button {
+    background-color: #94a3cb;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#user button:hover {
+    background-color: #afafafd8;
+}
+
+
+#user form {
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+#user table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#user th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #000000;
+}
+#user td {
+    color:rgb(0, 0, 0)
+}
+#user th {
+    background-color: #005f96e1;
+    color: rgb(255, 255, 255);
+}
+
+#user img {
+    width: 170px;
+    height: auto;
+}
+
+
+
+#admin {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: aliceblue;
+    background-size: cover;
+}
+
+#admin h1, #admin h2 {
+    text-align: center;
+    color: #000000;
+}
+
+#admin h2 {
+    margin-top: 20px;
+}
+
+#admin button {
+    background-color: #70ced5;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#admin button:hover {
+    background-color: #7a89a9ec;
+}
+
+#admin form {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#admin table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#admin th, #admin td {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #000000;
+}
+
+#admin th {
+    background-color: #139dece1;
+    color: white;
+}
+#admin img {
+    max-width: 120px;
+    max-height: auto;
+}

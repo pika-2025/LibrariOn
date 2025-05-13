@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+    <link rel = "stylesheet" href="/static/styles.css">
+
+</head>
+<body id="admin">
+    <h2>Librarian Dashboard</h2>
+    <button type="button"><a href='/admin_dashboard'>Home</a></button>
+    <button type="button"><a href='/issued_books'>Books Issued</a></button>
+    <button type="button"><a href='/books'>Books</a></button>
+    <button type="button">View Users</button>
+    <button type="button"><a href='/view_profile'>View Profile</a></button>
+    <button type="button"><a href="/stats">Stats</a></button>
+    <button type='submit'><a href="/logout">Logout</a></button>
+    <hr>
+    <h1>User List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>User Id</th>
+                <th>Name</th>
+                <th>Details</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{user.id}}</td>
+                <td>{{user.full_name}}</td>
+                <td><button type='button'><a href = '/user_details/{{user.id}}'>Click Here</a></button></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
